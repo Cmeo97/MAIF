@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
+  <xacro:arg name="robot_name" default="panda"/>
+
+  <!-- Empty link to referr everything to -->
+  <link name="world" />
+
+  <!-- Robot arm -->
+  <xacro:include filename="$(find franka_description)/robots/panda_arm.xacro"/>
+  <xacro:include filename="$(find franka_description)/robots/hand.xacro"/>
+  <xacro:include filename="$(find franka_description)/robots/panda.gazebo.xacro"/>
+  <xacro:include filename="$(find franka_description)/robots/panda.transmission.xacro"/>
+
+
+  <!-- Camera -->
+
+  <!-- Robot1 Pedestal -->
+  <!--<xacro:include filename="$(find franka_description)/robots/robot_pedestal/robot_pedestal.urdf.xacro"/>
+  <xacro:robot_pedestal_urdf pedestal_prefix="robot1_" pedestal_parent="world" pedestal_height="0.3">
+    <origin xyz="0.3 -0.5 0.0" rpy="0 0 0"/>-->
+  <!--</xacro:robot_pedestal_urdf>-->
+
+  <!-- bins -->
+  <!--xacro:include filename="$(find franka_description)/robots/bin/bin.urdf.xacro"/-->
+  <!--xacro:bin_urdf prefix="bin_1_"/-->
+  <!--xacro:bin_urdf prefix="bin_2_"/-->
+
+  <!-- Robot arm definition-->
+  <xacro:panda_arm />
+  <!-- Comment or uncomment to add the gripper -->
+  <!--xacro:hand ns="robot1" rpy="0 0 ${-pi/4}" connected_to="panda_link8"/-->
+  <xacro:panda_gazebo robot_name="$(arg robot_name)" />
+  <xacro:panda_transmission robot_name="$(arg robot_name)" />
+  
+
+
+
+  <!-- pedestal to world -->
+  <!--<joint name="robot1_pedestal_to_world_interface" type="fixed">
+    <parent link="world" />
+    <child link="robot1_pedestal_link" />
+    <origin xyz="0.4 -0.6 0.0" rpy="0.0 0.0 0.0"/>-->
+  <!--</joint>-->
+
+  
+  <!-- bin 1 -->
+  <!--<joint name="bin_1_joint" type="fixed">
+    <parent link="world" />
+    <child link="bin_1_base_link" />
+    <origin xyz="0.3 0.55 0" rpy="0 0 0" />
+  </joint>--> 
+  
+
+  <!-- bin 2 -->
+  <!--<joint name="bin_2_joint" type="fixed">
+    <parent link="world" />
+    <child link="bin_2_base_link" />
+    <origin xyz="0.4 -0.6 0.3" rpy="0 0 0" />
+  </joint>-->
+
+
+</robot>
