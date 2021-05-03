@@ -43,7 +43,7 @@ add_library(${PROJECT_NAME}
 
 ## Declare a C++ executable
 
-add_executable(${PROJECT_NAME}_AIC src/AIC_controller.cpp)
+add_executable(${PROJECT_NAME}_AIC src/AIC_babbling.cpp)
 add_dependencies(${PROJECT_NAME}_AIC ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(${PROJECT_NAME}_AIC
    ${catkin_LIBRARIES} ${PROJECT_NAME}

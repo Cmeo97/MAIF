@@ -1,0 +1,8 @@
+prefix=/home/cristian/Scrivania/MAIF/devel
+
+Name: panda_simulation
+Description: Description of panda_simulation
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

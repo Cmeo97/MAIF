@@ -48,7 +48,7 @@
     // Save joint values
     for( int i = 0; i < 7; i++ ) {
       jointPos(i) = msg->position[i];
-      jointPos(i) = jointPos(i) + q_noise(i);
+      //jointPos(i) = jointPos(i) + q_noise(i);
       jointVel(i) = msg->velocity[i];
     }
     // If this is the first time we read the joint states then we set the current beliefs
@@ -159,7 +159,7 @@ void   AIC::end_effStatesCallback(const gazebo_msgs::LinkStates::ConstPtr& msg)
     mu = mu + h*mu_dot;             // Belief about the position
     mu_p = mu_p + h*mu_dot_p;       // Belief about motion of mu
     mu_pp = mu_pp + h*mu_dot_pp;    // Belief about motion of mu'
-    AIC::noise();
+    //AIC::noise();
     // Publish beliefs as Float64MultiArray
     for (int i=0;i<7;i++){
        AIC_mu.data[i] = mu(i);
@@ -184,18 +184,15 @@ void   AIC::end_effStatesCallback(const gazebo_msgs::LinkStates::ConstPtr& msg)
     beliefs_mu_p_pub.publish(AIC_mu_p);
     beliefs_mu_pp_pub.publish(AIC_mu_pp);
 
-    err_end_eff  = abs(end_eff_d_x[d] - end_eff_x)  + abs(end_eff_d_y[d] - end_eff_y)  + abs(end_eff_d_z[d] - end_eff_z);
+    //err_end_eff  = abs(end_eff_d_x[d] - end_eff_x)  + abs(end_eff_d_y[d] - end_eff_y)  + abs(end_eff_d_z[d] - end_eff_z);
 
     //err_end_eff = end_eff - end_eff_d(d);
-    std::ofstream fileWrite("err_end_eff_noise.txt", std::ios::app);
-    fileWrite << err_end_eff;
-    fileWrite << "\n";
-    fileWrite.close(); 
+    //std::ofstream fileWrite("err_end_eff_noise.txt", std::ios::app);
+    //fileWrite << err_end_eff;
+    //fileWrite << "\n";
+    //fileWrite.close(); 
   }
 
-  void   AIC::save_err(){
-
-  }
   void   AIC::computeActions(){
     // Compute control actions through gradient descent of F
     u = u-h*k_a*(SigmaP_yq1*(jointVel-mu_p)+SigmaP_yq0*(jointPos-mu));

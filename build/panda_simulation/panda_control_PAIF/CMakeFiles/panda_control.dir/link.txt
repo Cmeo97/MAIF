@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC   -shared -Wl,-soname,libpanda_control.so -o /home/cristian/Scrivania/MAIF/devel/lib/libpanda_control.so CMakeFiles/panda_control.dir/src/classes/AIC.cpp.o 

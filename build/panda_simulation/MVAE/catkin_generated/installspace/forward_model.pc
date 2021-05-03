@@ -1,0 +1,8 @@
+prefix=/home/cristian/Scrivania/MAIF/install
+
+Name: forward_model
+Description: Description of forward_model
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

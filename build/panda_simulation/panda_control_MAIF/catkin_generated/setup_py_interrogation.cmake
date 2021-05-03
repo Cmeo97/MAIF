@@ -1,0 +1,7 @@
+set(perception_SETUP_PY_SETUP_MODULE "distutils.core")
+set(perception_SETUP_PY_VERSION "0.0.0")
+set(perception_SETUP_PY_SCRIPTS "")
+set(perception_SETUP_PY_PACKAGES "logger")
+set(perception_SETUP_PY_PACKAGE_DIRS "src/logger")
+set(perception_SETUP_PY_MODULES "")
+set(perception_SETUP_PY_MODULE_DIRS "")

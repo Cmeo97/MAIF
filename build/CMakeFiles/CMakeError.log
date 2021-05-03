@@ -1,0 +1,55 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/cristian/Scrivania/MAIF/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4af76/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4af76.dir/build.make CMakeFiles/cmTC_4af76.dir/build
+make[1]: ingresso nella directory "/home/cristian/Scrivania/MAIF/build/CMakeFiles/CMakeTmp"
+Building C object CMakeFiles/cmTC_4af76.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_4af76.dir/CheckSymbolExists.c.o   -c /home/cristian/Scrivania/MAIF/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_4af76
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4af76.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_4af76.dir/CheckSymbolExists.c.o  -o cmTC_4af76 
+CMakeFiles/cmTC_4af76.dir/CheckSymbolExists.c.o: nella funzione "main":
+CheckSymbolExists.c:(.text+0x1b): riferimento non definito a "pthread_create"
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_4af76.dir/build.make:97: recipe for target 'cmTC_4af76' failed
+make[1]: *** [cmTC_4af76] Error 1
+make[1]: uscita dalla directory "/home/cristian/Scrivania/MAIF/build/CMakeFiles/CMakeTmp"
+Makefile:126: recipe for target 'cmTC_4af76/fast' failed
+make: *** [cmTC_4af76/fast] Error 2
+
+File /home/cristian/Scrivania/MAIF/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/cristian/Scrivania/MAIF/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7c325/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7c325.dir/build.make CMakeFiles/cmTC_7c325.dir/build
+make[1]: ingresso nella directory "/home/cristian/Scrivania/MAIF/build/CMakeFiles/CMakeTmp"
+Building C object CMakeFiles/cmTC_7c325.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_7c325.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_7c325
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7c325.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_7c325.dir/CheckFunctionExists.c.o  -o cmTC_7c325 -lpthreads 
+/usr/bin/ld: impossibile trovare -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_7c325.dir/build.make:97: recipe for target 'cmTC_7c325' failed
+make[1]: *** [cmTC_7c325] Error 1
+make[1]: uscita dalla directory "/home/cristian/Scrivania/MAIF/build/CMakeFiles/CMakeTmp"
+Makefile:126: recipe for target 'cmTC_7c325/fast' failed
+make: *** [cmTC_7c325/fast] Error 2
+
+

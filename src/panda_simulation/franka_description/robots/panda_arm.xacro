@@ -11,7 +11,7 @@
   <xacro:property name="mass_link6" value="1.46736" />
   <xacro:property name="mass_link7" value="0.45606" />
   <xacro:property name="mass_link8" value="0.001" />
-
+  <xacro:property name="mass_marker" value="0.00001" />
   <!-- Wrong masses to test adaptability of the algorithms, on purpose off by 20% -->
   <!--xacro:property name="mass_link0" value="3.66357" />
   <xacro:property name="mass_link1" value="2.04471" />
@@ -250,6 +250,7 @@
         <inertia ixx="0.3" ixy="0.0" ixz="0.0" iyy="0.3" iyz="0.0" izz="0.3"/>
       </inertial>
     </link>
+    
     <joint name="${arm_id}_joint7" type="revolute">
       <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/>
       <origin rpy="${pi/2} 0 0" xyz="0.088 0 0"/>
@@ -259,6 +260,23 @@
       <limit effort="12" lower="-2.8973" upper="2.8973" velocity="2.6100"/>
       <dynamics damping="${joint_damping}"/>
     </joint>
+
+  
+<!-- ADD MARKER TO LAST JOINT -->
+
+    <link name="${arm_id}_marker">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://${description_pkg}/meshes/aruco_marker.dae"/>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="robot_to_marker" type="fixed">
+      <parent link="${arm_id}_link7" />
+      <child link="${arm_id}_marker" />
+    <origin xyz="0.05 0.0 0.0" rpy="0.0 1.57 0.0" />
+    </joint>
     <link name="${arm_id}_link8">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -266,10 +284,12 @@
         <inertia ixx="0.3" ixy="0.0" ixz="0.0" iyy="0.3" iyz="0.0" izz="0.3"/>
       </inertial>
     </link>
+   
     <joint name="${arm_id}_joint8" type="revolute">
       <origin rpy="0 0 0" xyz="0 0 0.107"/>
       <parent link="${arm_id}_link7"/>
       <child link="${arm_id}_link8"/>
+      <child link="${arm_id}_marker"/> 
       <axis xyz="0 0 1"/>
       <limit effort="1" lower="0" upper="0.1" velocity="0.1"/>
       <dynamics damping="100"/>

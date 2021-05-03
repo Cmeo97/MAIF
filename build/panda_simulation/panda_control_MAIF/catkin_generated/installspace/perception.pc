@@ -1,0 +1,8 @@
+prefix=/home/cristian/Scrivania/MAIF/install
+
+Name: perception
+Description: Description of perception
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: roscpp rospy sensor_msgs std_msgs geometry_msgs cv_bridge

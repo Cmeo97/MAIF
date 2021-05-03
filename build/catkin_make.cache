@@ -1,0 +1,2 @@
+panda_simulation/MVAE:panda_simulation/franka_description:panda_simulation/panda_control_MAIF:panda_simulation/panda_control_PAIF:panda_simulation/panda_simulation
+-DCATKIN_DEVEL_PREFIX=/home/cristian/Scrivania/MAIF/devel -DCMAKE_INSTALL_PREFIX=/home/cristian/Scrivania/MAIF/install -G Unix Makefiles

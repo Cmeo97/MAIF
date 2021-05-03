@@ -1,0 +1,7 @@
+set(forward_model_SETUP_PY_SETUP_MODULE "distutils.core")
+set(forward_model_SETUP_PY_VERSION "0.0.0")
+set(forward_model_SETUP_PY_SCRIPTS "")
+set(forward_model_SETUP_PY_PACKAGES "forward_model")
+set(forward_model_SETUP_PY_PACKAGE_DIRS "src/forward_model")
+set(forward_model_SETUP_PY_MODULES "")
+set(forward_model_SETUP_PY_MODULE_DIRS "")
