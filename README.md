@@ -1,9 +1,9 @@
 # Multimodal-AIF (MAIF)
-Multimodal VAE Active Inference Controller* 
+Multimodal VAE Active Inference Controller, published on IROS2021. 
 
-Preprint: Cristian Meo and Pablo Lanillos (2021). "Multimodal VAE Active Inference Controller". Arxiv. 
+Preprint: Cristian Meo and Pablo Lanillos (2021). "Multimodal VAE Active Inference Controller". https://arxiv.org/abs/2103.04412#
 
-*This work is under review. 
+
 
 *This repository includes the code for the MAIF torque controller code and the tests with the 7DOF Panda robot.*
 
